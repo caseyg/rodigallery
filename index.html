@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<title>{{site.title}} | {{title}}</title>
+	<link rel="alternate" type="application/rss+xml" href="{{site.feed_url}}" />
+
+	<script type="text/javascript">
+	var html = document.getElementsByTagName('html')[0];
+	html.className += 'wf-loading';
+	setTimeout(function() {
+	  html.className = html.className.replace(' wf-loading', '');
+	}, 5000);
+
+	WebFontConfig = { fontdeck: { id: '35630' } };
+
+	(function() {
+	  var wf = document.createElement('script');
+	  wf.src = 'http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+	  wf.type = 'text/javascript';
+	  wf.async = 'true';
+	  var s = document.getElementsByTagName('script')[0];
+	  s.parentNode.insertBefore(wf, s);
+	})();
+	</script>
+
+	<link rel="stylesheet" type="text/css" href="/style.css" />
+	<script type="text/javascript" src="http://leaflet.cloudmade.com/dist/leaflet.js"></script>
+	<link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.ie.css" /><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+	<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.3"></script>
+	<script type="text/javascript">
+		function initialize() {
+			var layer = new L.StamenTileLayer("toner-lite");
+			var map = new L.Map("map");
+			{% for post in site.posts %}
+			var {{post.slug | remove:'-' }} = L.marker([{{post.meta.lat}}, {{post.meta.long}}]).bindPopup('<a href="{{post.url}}"><h2>{{post.title}}</h2> {% for asset in post.assets limit:1 %}{% if asset.type == "image" %} <img src="{{asset.url}}"" width="200px" />{% endif %}{% endfor %}</a> {{post.excerpt | strip_newlines}}').addTo(map).on('click', function(e) {map.panTo([e.latlng.lat, e.latlng.lng]);});
+			{% endfor %}
+			var latlngs = [{% for post in site.posts %}new L.LatLng({{post.meta.lat}}, {{post.meta.long}}), {% endfor %}];
+			var polyline = L.polyline(latlngs, {color: 'blue'}).addTo(map);
+			map.addLayer(layer);
+			
+			map.fitBounds(polyline.getBounds());
+
+		}
+	</script>
+</head>
+<body id="index" onload="initialize()">
+	{% include "header" %}
+	<div id="map"></div>
+	{% include "nav" %}
+</body>
+</html>
