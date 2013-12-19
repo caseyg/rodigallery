@@ -1,0 +1,46 @@
+
+{% capture content %}
+
+<hr />
+
+{{ body }}
+
+<hr />
+
+<h2>Email</h2>
+
+<a href="mailto:info@rodigallery.com">info@rodigallery.com</a>
+
+<hr />
+
+<h2><a href="http://facebook.com/rodigallery">Facebook</a></h2>
+
+<div class="fb-follow" data-href="http://www.facebook.com/rodigallery" data-colorscheme="light" data-layout="button" data-show-faces="true"></div>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=265143426851122";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<hr />
+
+<h2><a href="http://twitter.com/rodigallery">Twitter</a></h2>
+
+<a href="https://twitter.com/RodiGallery" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @RodiGallery</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<hr />
+
+<h2><a href="http://rodigallery.tumblr.com">Tumblr</a></h2>
+
+<iframe class="btn" frameborder="0" border="0" scrolling="no" allowtransparency="true" height="25" width="152" src="http://platform.tumblr.com/v1/follow_button.html?button_type=1&tumblelog=rodigallery&color_scheme=light"></iframe>
+
+<hr />
+
+{% endcapture %}
+
+{% include 'layouts/default' %}

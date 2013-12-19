@@ -1,25 +1,46 @@
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,video{display:inline-block}audio:not([controls]){display:none;height:0}[hidden]{display:none}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}a:focus{outline:thin dotted}a:active,a:hover{outline:0}h1{font-size:2em;margin:.67em 0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}mark{background:#ff0;color:#000}code,kbd,pre,samp{font-family:monospace,serif;font-size:1em}pre{white-space:pre-wrap}q{quotes:"\201C" "\201D" "\2018" "\2019"}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:0}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}button,input{line-height:normal}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top}table{border-collapse:collapse;border-spacing:0}
 
+// Defaults
+
+body {
+	background-color:#616A74;
+}
+
+// Headings and Typography
+
+.wf-loading body {
+    visibility: hidden;
+}
+
 h1, h2, h3, h4, h5, nav, nav a:link, nav a:visited, h1 a:link, h1 a:visited {
 	font-family:"DIN 1451 Engschrift Standard", Calibri, Helvetica, Arial, sans-serif, serif;
 	font-size-adjust:0.479;
 	font-weight:normal;
 	font-style:normal;
 	text-transform: uppercase;
-	color:#616A74;
+	color:#fff;
 }
 
-.wf-loading body {
-    visibility: hidden;
+h1 {
+	font-size:3em;
+	margin:0 0 20px 0;
+	padding:0;
+	top:0;
 }
 
-html, body, #map {
-	height: 100%;
+h2 {
+	font-size:1em;
+	line-height: .8em;
+	margin:0;
+	padding:10px 0;
 }
-#map {
-	display:block;
-	margin: 0;
+
+a:link, a:visited {
+	color:white;
 }
+
+// Header & Footer
+
 h1, nav#main a:link, nav#main a:visited {
 	border-bottom:1px solid rgba(0,0,1,0);
 	color:#fff!important;
@@ -29,9 +50,9 @@ h1, nav#main a:link, nav#main a:visited {
 		1px -1px 0 #616A74,
 		-1px 1px 0 #616A74,
 		1px 1px 0 #616A74;
-	-webkit-transition: all .25s;
 }
-h1, nav#main {
+
+nav#main {
 	position:fixed;
 	left:0;
 	width:100%;
@@ -46,15 +67,23 @@ h1, nav#main {
 			-1px 1px 0 blue,
 			1px 1px 0 blue;
 	}
-
 }
 
 h1 {
-	font-size:5em;
-	margin:0;
-	padding:0;
-	top:0;
+	width:100%;
+	z-index:100;
+	text-align:center;
+	margin-top:18px;
 }
+
+h2 {
+	text-shadow:none;
+	color:transparent!important;
+	-webkit-text-stroke:1px white;
+}
+
+.leaflet-bottom {display:none;}
+
 nav#main {
 	bottom:0;
 	padding:75px 0 15px 0;
@@ -66,22 +95,121 @@ nav#main {
 		li {
 			display:inline-block;
 			a {
-				font-size:2em;
+				font-size:1.5em;
 				padding:0;
-				margin:0 10px;
+				margin:0 2px;
 			}
 		}
 	}
 }
-#page img, section#content {
-	max-width:100%;
-	width:1000px;
-	margin:auto
+
+// Map Page
+
+html, body, #map {
+	height: 100%;
 }
 
-section#content {
-	margin:0 auto;
-	p {
-		padding:10px;
+#map {
+	display:block;
+	margin: 0;
+}
+
+body#index {
+	h1 {
+		position:absolute;
 	}
+}
+
+// Default Template
+
+section#content {
+	width:90%;
+	max-width:1000px;
+	margin:0 auto;
+	padding: 0 5% 85px 5%;
+	font-family:"DIN 1451 Engschrift Standard";
+	font-size:38px;
+	color:#fff;
+	text-shadow:
+		-1px -1px 0 #616A74,  
+		1px -1px 0 #616A74,
+		-1px 1px 0 #616A74,
+		1px 1px 0 #616A74;
+	img {
+		max-width:100%;
+	}
+	p {
+		padding:0 0 10px 0;
+	}
+}
+
+// About Page
+
+body#about {
+	background:url(https://4b2c926d4332f762d636-82df662923e9aaa8e69c981ad9a6a031.ssl.cf2.rackcdn.com/51eefa975dde22357f00001b/assets/52b22b425dde22a90a00000a.jpg) no-repeat fixed center;
+	background-size:cover;
+	p {
+		padding:200px 0!important;
+	}
+}
+
+// Exhbitions Index Page
+
+body#exhibitions {
+	ul#exhibition-grid {
+		list-style-type: none;
+		margin:0;
+		padding:0;
+		li {
+			display:inline-block;
+			width:45%;
+			a:link, a:visited {
+				color:#fff;
+				text-decoration: none;
+				vertical-align: baseline;
+			}
+			a:hover, a:active {
+				border-bottom:1px solid blue;
+				color:#fff!important;
+				text-shadow:
+					-1px -1px 0 blue,  
+					1px -1px 0 blue,
+					-1px 1px 0 blue,
+					1px 1px 0 blue;
+			}
+		}
+		li:nth-child(1n+1) {
+			padding-right:4%;
+		}
+	}
+}
+
+// Follow Page
+
+body#follow {
+	text-align:center;
+}
+
+hr {
+	height:100px;
+	width:2px;
+	border:none;
+	border-right:1px dashed white;
+}
+
+// Media queries
+@media only screen and (min-width: 346px) {
+	nav#main ul li a {margin:0 10px;}
+}
+@media only screen and (min-width: 768px) {
+	nav#main ul li a {font-size:2.5em;}
+}
+
+@media only screen and (min-width: 768px) {
+	nav#main ul li a {font-size:2.5em;}
+}
+@media only screen and (min-width: 992px) {
+}
+@media only screen and (min-width: 1382px) {
+
 }

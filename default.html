@@ -1,47 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<meta content="width=device-width, initial-scale=1" name="viewport">
-	<title>{{site.title}} | {{title}}</title>
-	<link rel="alternate" type="application/rss+xml" href="{{site.feed_url}}" />
-	<script type="text/javascript">
-	WebFontConfig = { fontdeck: { id: '35630' } };
+{% capture content %}
+{{ body }}
+{% endcapture %}
 
-	(function() {
-		var wf = document.createElement('script');
-		wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-		'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-		wf.type = 'text/javascript';
-		wf.async = 'true';
-		var s = document.getElementsByTagName('script')[0];
-		s.parentNode.insertBefore(wf, s);
-	})();
-	</script>
-	<link rel="stylesheet" type="text/css" href="/style.css" />
-</head>
-<body id="page">
-
-{% include 'header' %}
-
-	<section id="content">
-
-		{{body}}
-
-		{% for asset in assets %}
-			{% if asset.type == 'image' %}
-			<img src="{{asset.url}}">
-			{% elsif asset.type == 'audio' %}
-			<audio><source src="{{asset.url}}" type="{{asset.content_type}}"></audio>
-			{% elsif asset.type == 'video' %}
-			<video><source src="{{asset.url}}" type="{{asset.content_type}}"></video>
-			{% elsif asset.type == 'other' %}
-			<a href="{{asset.url}}">Download {{asset.filename}}</a></li>
-			{% endif %}
-		{% endfor %}
-	</section>
-
-{% include 'nav' %}
-
-</body>
-</html>
+{% include "layouts/default" %}

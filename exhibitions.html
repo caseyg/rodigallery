@@ -1,41 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<meta content="width=device-width, initial-scale=1" name="viewport">
-	<title>{{site.title}} | {{title}}</title>
-	<link rel="alternate" type="application/rss+xml" href="{{site.feed_url}}" />
-	<script type="text/javascript">
-	WebFontConfig = { fontdeck: { id: '35630' } };
+{% capture content %}
+	<ul id="exhibition-grid">
+	{% for post in posts %}
+		<li>
+			<a href="{{post.url}}">
+				{% for asset in post.assets limit:1 %}
+					{% if asset.type == 'image' %}
+					<img src="{{asset.url}}">
+					{% endif %}
+				{% endfor %}
+				<h2>{{post.title}}</h2>
+			</a>
+		</li>
+	{% endfor %}
+	</ul>
+{% endcapture %}
 
-	(function() {
-		var wf = document.createElement('script');
-		wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-		'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-		wf.type = 'text/javascript';
-		wf.async = 'true';
-		var s = document.getElementsByTagName('script')[0];
-		s.parentNode.insertBefore(wf, s);
-	})();
-	</script>
-	<link rel="stylesheet" type="text/css" href="/style.css" />
-</head>
-<body id="exhibitions">
-{% include 'header' %}
-	<section id="content">
-		{% for post in posts %}
-			<article class="post-preview">
-				<a href="{{post.url}}">
-					{% for asset in post.assets limit:1 %}
-						{% if asset.type == 'image' %}
-						<img src="{{asset.url}}">
-						{% endif %}
-					{% endfor %}
-					<h2>{{post.title}}</h2>
-				</a>
-			</article>
-		{% endfor %}
-	</section><!-- /content -->
-{% include 'nav' %}
-</body>
-</html>
+{% include "layouts/default" %}

@@ -20,13 +20,13 @@
 	</script>
 	<link rel="stylesheet" type="text/css" href="/style.css" />
 </head>
-<body id="page">
+<body id="{{slug}}">
 
 {% include 'header' %}
 
 	<section id="content">
 
-		{{body}}
+		{{content}}
 
 		{% for asset in assets %}
 			{% if asset.type == 'image' %}
