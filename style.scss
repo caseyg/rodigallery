@@ -46,7 +46,7 @@ h1, nav#main a:link, nav#main a:visited {
 	color:#fff!important;
 	text-decoration:none;
 	text-shadow:
-		-1px -1px 0 #616A74,  
+		-1px -1px 0 #616A74,
 		1px -1px 0 #616A74,
 		-1px 1px 0 #616A74,
 		1px 1px 0 #616A74;
@@ -62,7 +62,7 @@ nav#main {
 		border-bottom:1px solid blue;
 		color:#fff!important;
 		text-shadow:
-			-1px -1px 0 blue,  
+			-1px -1px 0 blue,
 			1px -1px 0 blue,
 			-1px 1px 0 blue,
 			1px 1px 0 blue;
@@ -131,12 +131,14 @@ section#content {
 	font-size:38px;
 	color:#fff;
 	text-shadow:
-		-1px -1px 0 #616A74,  
+		-1px -1px 0 #616A74,
 		1px -1px 0 #616A74,
 		-1px 1px 0 #616A74,
 		1px 1px 0 #616A74;
 	img {
 		max-width:100%;
+		display:block;
+		margin: auto!important;
 	}
 	p {
 		padding:0 0 10px 0;
@@ -172,7 +174,7 @@ body#exhibitions {
 				border-bottom:1px solid blue;
 				color:#fff!important;
 				text-shadow:
-					-1px -1px 0 blue,  
+					-1px -1px 0 blue,
 					1px -1px 0 blue,
 					-1px 1px 0 blue,
 					1px 1px 0 blue;

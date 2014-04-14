@@ -167,7 +167,7 @@ h1, nav#main a:link, nav#main a:visited {
   border-bottom: 1px solid rgba(0, 0, 1, 0);
   color: white !important;
   text-decoration: none;
-  text-shadow: -1px -1px 0 #616A74,   1px -1px 0 #616A74, -1px 1px 0 #616A74, 1px 1px 0 #616A74; }
+  text-shadow: -1px -1px 0 #616A74, 1px -1px 0 #616A74, -1px 1px 0 #616A74, 1px 1px 0 #616A74; }
 
 nav#main {
   position: fixed;
@@ -178,7 +178,7 @@ nav#main {
   nav#main a:hover, nav#main a:active {
     border-bottom: 1px solid blue;
     color: white !important;
-    text-shadow: -1px -1px 0 blue,   1px -1px 0 blue, -1px 1px 0 blue, 1px 1px 0 blue; }
+    text-shadow: -1px -1px 0 blue, 1px -1px 0 blue, -1px 1px 0 blue, 1px 1px 0 blue; }
 
 h1 {
   width: 100%;
@@ -227,9 +227,11 @@ section#content {
   font-family: "DIN 1451 Engschrift Standard";
   font-size: 38px;
   color: #fff;
-  text-shadow: -1px -1px 0 #616A74,   1px -1px 0 #616A74, -1px 1px 0 #616A74, 1px 1px 0 #616A74; }
+  text-shadow: -1px -1px 0 #616A74, 1px -1px 0 #616A74, -1px 1px 0 #616A74, 1px 1px 0 #616A74; }
   section#content img {
-    max-width: 100%; }
+    max-width: 100%;
+    display: block;
+    margin: auto !important; }
   section#content p {
     padding: 0 0 10px 0; }
 
@@ -253,7 +255,7 @@ body#exhibitions ul#exhibition-grid {
     body#exhibitions ul#exhibition-grid li a:hover, body#exhibitions ul#exhibition-grid li a:active {
       border-bottom: 1px solid blue;
       color: white !important;
-      text-shadow: -1px -1px 0 blue,   1px -1px 0 blue, -1px 1px 0 blue, 1px 1px 0 blue; }
+      text-shadow: -1px -1px 0 blue, 1px -1px 0 blue, -1px 1px 0 blue, 1px 1px 0 blue; }
   body#exhibitions ul#exhibition-grid li:nth-child(1n+1) {
     padding-right: 4%; }
 
