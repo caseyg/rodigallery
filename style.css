@@ -231,7 +231,7 @@ section#content {
   section#content img {
     max-width: 100%;
     display: block;
-    margin: auto !important; }
+    margin: 10px auto; }
   section#content p {
     padding: 0 0 10px 0; }
 
