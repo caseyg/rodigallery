@@ -32,21 +32,25 @@
 		function initialize() {
 			var layer = new L.StamenTileLayer("toner-background");
 			var map = new L.Map("map");
-			var maki = L.icon({
-				iconUrl: '/img/marker-24.png',
-				iconRetinaUrl: '/img/marker-24@2x.png',
-				iconSize: [24, 24],
-				iconAnchor: [13, 6],
-				popupAnchor: [0, 0]
-			});
 			var bounds = new Array();
 			{% for post in site.posts %}
-			var {{post.slug | remove:'-' }} = L.marker([{{post.meta.lat}}, {{post.meta.long}}], {icon: maki}).bindPopup('<a href="{{post.url}}"><h2>{{post.title}}</h2> {% for asset in post.assets limit:1 %}{% if asset.type == "image" %} <img src="{{asset.url}}"" width="200px" />{% endif %}{% endfor %}</a> {{post.excerpt | strip_newlines}}', {keepInView: true}, {autoPan: true}, {autoPanPaddingTopLeft: 500}, {autoPanPaddingBottomRight: 500}).addTo(map);
+			var maki = L.icon({
+				iconUrl: 'http://rodigallery.com/assets/marker-{{post.slug | remove:'-' }}.png',
+				iconRetinaUrl: 'http://rodigallery.com/assets/marker-{{post.slug | remove:'-' }}@2x.png',
+				iconSize: [90, 90],
+				iconAnchor: [45, 20],
+				popupAnchor: [0, 0],
+		    shadowUrl: 'http://rodigallery.com/assets/marker-shadow.png',
+		    shadowRetinaUrl: 'http://rodigallery.com/assets/marker-shadow@2x.png',
+		    shadowSize: [90, 90],
+		    shadowAnchor: [23, 2]
+			});
+			var {{post.slug | remove:'-' }} = L.marker([{{post.meta.lat}}, {{post.meta.long}}], {icon: maki, riseOnHover: true}).bindPopup('<a href="{{post.url}}">{% for asset in post.assets limit:1 %}{% if asset.type == "image" %} <img src="{{asset.url}}"" width="300px" />{% endif %}{% endfor %} <h2>{{post.title}}</h2></a> {{post.excerpt | strip_newlines}}').addTo(map);
 			console.log([{{post.meta.lat}}, {{post.meta.long}}]);
 			bounds.push([{{post.meta.lat}}, {{post.meta.long}}]);
 			{% endfor %}
 			console.log(bounds);
-			map.fitBounds(bounds, {padding: [50, 50]});
+			map.fitBounds(bounds, {padding: L.point(25, 25)});
 			map.addLayer(layer);
 		}
 	</script>

@@ -154,6 +154,10 @@ h1 {
   padding: 0;
   top: 0; }
 
+h2 {
+  font-size: 2em;
+  line-height: 1em; }
+
 h1, nav#main a:link, nav#main a:visited {
   border-bottom: 1px solid rgba(0, 0, 1, 0);
   color: white !important;
@@ -208,10 +212,16 @@ html, body, #map {
   margin: 0; }
 
 .leaflet-tile-pane {
-  opacity: .25; }
+  opacity: .10; }
+
+.leaflet-popup a:link h2, .leaflet-popup a:visited h2 {
+  text-decoration: none; }
 
 body#index h1 {
   position: absolute; }
+body#index h1, body#index nav#main a:link, body#index nav#main a:visited {
+  color: #616a74 !important;
+  text-shadow: none !important; }
 
 .leaflet-popup-content-wrapper {
   border-radius: 0; }
