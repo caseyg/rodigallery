@@ -24,6 +24,7 @@
 	  s.parentNode.insertBefore(wf, s);
 	})();
 	</script>
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
 	<link rel="stylesheet" type="text/css" href="/style.css" />
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
@@ -45,7 +46,7 @@
 		    shadowSize: [90, 90],
 		    shadowAnchor: [23, 2]
 			});
-			var {{post.slug | remove:'-' }} = L.marker([{{post.meta.lat}}, {{post.meta.long}}], {icon: maki, riseOnHover: true}).bindPopup('<a href="{{post.url}}">{% for asset in post.assets limit:1 %}{% if asset.type == "image" %} <img src="{{asset.url}}"" width="300px" />{% endif %}{% endfor %} <h2>{{post.title}}</h2></a> {{post.excerpt | strip_newlines}}').addTo(map);
+			var {{post.slug | remove:'-' }} = L.marker([{{post.meta.lat}}, {{post.meta.long}}], {icon: maki, riseOnHover: true}).bindPopup('<a href="{{post.url}}" class="imagelink">{% for asset in post.assets limit:1 %}{% if asset.type == "image" %} <img src="{{asset.url}}"" width="300px" />{% endif %}{% endfor %}</a><span class="popup-content"><h2><a href="{{post.url}}">{{post.title}}</a></h2> {{post.excerpt | strip_newlines}}</span>').addTo(map);
 			console.log([{{post.meta.lat}}, {{post.meta.long}}]);
 			bounds.push([{{post.meta.lat}}, {{post.meta.long}}]);
 			{% endfor %}
@@ -56,8 +57,29 @@
 	</script>
 </head>
 <body id="index" onload="initialize()">
-	{% include "header" %}
+	<section id="sidebar">
+		<h1>Rodi Gallery</h1>
+		<section id="follow">
+			{{ site.pages.follow.body }}
+		</section>
+		<nav id="main">
+			<ul>
+				<li><a href="/exhibitions">Exhibitions</a></li>
+				<li id="maplink"><a href="/map">Map</a></li>
+				<li><a href="/about">About</a></li>
+			</ul>
+		</nav>
+
+		<a href="mailto:info@rodigallery.com">info@rodigallery.com</a>
+
+		<ul id="socialmedia">
+			<li><a href="http://facebook.com/rodigallery" title="Follow Rodi Gallery on Facebook"><i class="fa fa-facebook-square"></i></a></li>
+			<li><a href="http://rodigallery.tumblr.com" title="Follow Rodi Gallery on Tumblr"><i class="fa fa-tumblr-square"></i></a></li>
+			<li><a href="http://twitter.com/rodigallery" title="Follow Rodi Gallery on Twitter"><i class="fa fa-twitter-square"></i></a></li>
+			<li><a href="http://instagram.com/rodigallery" title="Follow Rodi Gallery on Instagram"><i class="fa fa-instagram"></i></a></li>
+		</ul>
+
+	</section>
 	<div id="map"></div>
-	{% include "nav" %}
 </body>
 </html>
