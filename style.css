@@ -154,15 +154,6 @@ h1 {
   padding: 0;
   top: 0; }
 
-h2 {
-  font-size: 1em;
-  line-height: .8em;
-  margin: 0;
-  padding: 10px 0; }
-
-a:link, a:visited {
-  color: white; }
-
 h1, nav#main a:link, nav#main a:visited {
   border-bottom: 1px solid rgba(0, 0, 1, 0);
   color: white !important;
@@ -188,8 +179,7 @@ h1 {
 
 h2 {
   text-shadow: none;
-  color: transparent !important;
-  -webkit-text-stroke: 1px white; }
+  color: #616A74; }
 
 .leaflet-bottom {
   display: none; }
@@ -213,11 +203,18 @@ html, body, #map {
   height: 100%; }
 
 #map {
+  background: #fff;
   display: block;
   margin: 0; }
 
+.leaflet-tile-pane {
+  opacity: .25; }
+
 body#index h1 {
   position: absolute; }
+
+.leaflet-popup-content-wrapper {
+  border-radius: 0; }
 
 section#content {
   width: 90%;

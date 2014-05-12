@@ -24,26 +24,30 @@
 	  s.parentNode.insertBefore(wf, s);
 	})();
 	</script>
-
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
 	<link rel="stylesheet" type="text/css" href="/style.css" />
-	<script type="text/javascript" src="http://leaflet.cloudmade.com/dist/leaflet.js"></script>
-	<link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.css" />
-	<!--[if lte IE 8]><link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.ie.css" /><![endif]-->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
-	<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.3"></script>
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+	<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
 	<script type="text/javascript">
 		function initialize() {
-			var layer = new L.StamenTileLayer("toner-lite");
+			var layer = new L.StamenTileLayer("toner-background");
 			var map = new L.Map("map");
+			var maki = L.icon({
+				iconUrl: '/img/marker-24.png',
+				iconRetinaUrl: '/img/marker-24@2x.png',
+				iconSize: [24, 24],
+				iconAnchor: [13, 6],
+				popupAnchor: [0, 0]
+			});
+			var bounds = new Array();
 			{% for post in site.posts %}
-			var {{post.slug | remove:'-' }} = L.marker([{{post.meta.lat}}, {{post.meta.long}}]).bindPopup('<a href="{{post.url}}"><h2>{{post.title}}</h2> {% for asset in post.assets limit:1 %}{% if asset.type == "image" %} <img src="{{asset.url}}"" width="200px" />{% endif %}{% endfor %}</a> {{post.excerpt | strip_newlines}}').addTo(map).on('click', function(e) {map.panTo([e.latlng.lat, e.latlng.lng]);});
+			var {{post.slug | remove:'-' }} = L.marker([{{post.meta.lat}}, {{post.meta.long}}], {icon: maki}).bindPopup('<a href="{{post.url}}"><h2>{{post.title}}</h2> {% for asset in post.assets limit:1 %}{% if asset.type == "image" %} <img src="{{asset.url}}"" width="200px" />{% endif %}{% endfor %}</a> {{post.excerpt | strip_newlines}}', {keepInView: true}, {autoPan: true}, {autoPanPaddingTopLeft: 500}, {autoPanPaddingBottomRight: 500}).addTo(map);
+			console.log([{{post.meta.lat}}, {{post.meta.long}}]);
+			bounds.push([{{post.meta.lat}}, {{post.meta.long}}]);
 			{% endfor %}
-			var latlngs = [{% for post in site.posts %}new L.LatLng({{post.meta.lat}}, {{post.meta.long}}), {% endfor %}];
-			var polyline = L.polyline(latlngs, {color: 'blue'}).addTo(map);
+			console.log(bounds);
+			map.fitBounds(bounds, {padding: [50, 50]});
 			map.addLayer(layer);
-			
-			map.fitBounds(polyline.getBounds());
-
 		}
 	</script>
 </head>
