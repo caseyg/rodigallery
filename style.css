@@ -148,8 +148,7 @@ a:hover, a:active {
   text-decoration: underline !important; }
 
 img {
-  max-width: 100%;
-  background: #eee; }
+  max-width: 100%; }
 
 #content {
   background: #fff; }
@@ -158,9 +157,6 @@ img {
   color: #616A74; }
   #content h1 {
     color: #616A74; }
-
-#instantclick-bar {
-  background: #616A74; }
 
 .wf-loading body {
   visibility: hidden; }
