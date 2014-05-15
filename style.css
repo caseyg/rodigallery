@@ -148,8 +148,7 @@ a:hover, a:active {
   text-decoration: underline !important; }
 
 img {
-  max-width: 100%;
-  margin-bottom: 20px; }
+  max-width: 100%; }
 
 #content {
   background: #fff; }
