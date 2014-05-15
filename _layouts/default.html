@@ -18,14 +18,16 @@
 		s.parentNode.insertBefore(wf, s);
 	})();
 	</script>
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="/style.css" />
 </head>
 <body id="{{slug}}">
 
-{% include 'header' %}
+{% include "sidebar" %}
 
 	<section id="content">
 
+		<h1>{{title}}</h1>
 		{{content}}
 
 		{% for asset in assets %}
@@ -40,8 +42,6 @@
 			{% endif %}
 		{% endfor %}
 	</section>
-
-{% include 'nav' %}
 
 </body>
 </html>

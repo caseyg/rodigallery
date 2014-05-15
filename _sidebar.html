@@ -1,0 +1,34 @@
+<section id="sidebar">
+  <h1><a href="/">Rodi Gallery</a></h1>
+  <section id="navcontent" style="display:none;">
+    <section id="follow">
+      {{ site.pages.follow.body }}
+    </section>
+    <nav id="main">
+      <ul>
+        <li><a href="/exhibitions">Exhibitions</a></li>
+        <li id="maplink"><a href="/map">Map</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+
+    <a href="mailto:info@rodigallery.com">info@rodigallery.com</a>
+
+    <ul id="socialmedia">
+      <li><a href="http://facebook.com/rodigallery" title="Follow Rodi Gallery on Facebook"><i class="fa fa-facebook-square"></i></a></li>
+      <li><a href="http://rodigallery.tumblr.com" title="Follow Rodi Gallery on Tumblr"><i class="fa fa-tumblr-square"></i></a></li>
+      <li><a href="http://twitter.com/rodigallery" title="Follow Rodi Gallery on Twitter"><i class="fa fa-twitter-square"></i></a></li>
+      <li><a href="http://instagram.com/rodigallery" title="Follow Rodi Gallery on Instagram"><i class="fa fa-instagram"></i></a></li>
+    </ul>
+
+  </section>
+  <a href="#" id="navtoggle">▼ Expand Navigation</a>
+</section>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$( "#navtoggle" ).click(function() {
+  var txt = $("#navcontent").is(':visible') ? '▼ Expand Navigation' : '▲ Close Navigation';
+  $("#navtoggle").text(txt);
+  $( "#navcontent" ).slideToggle( "slow" );
+});
+</script>

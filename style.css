@@ -135,19 +135,28 @@ table {
   border-spacing: 0; }
 
 body {
-  background-color: #616A74;
+  background-color: #fff;
   font-size: 1em;
-  color: #fff; }
+  color: #fff;
+  margin: 0;
+  padding: 0; }
 
 a:link, a:visited {
-  color: #fff;
-  padding: 2px 5px;
-  margin: auto auto auto -5px; }
+  color: #616A74; }
 
 a:hover, a:active {
-  background: #fff;
-  color: #616a74 !important;
-  text-decoration: none; }
+  text-decoration: underline !important; }
+
+img {
+  max-width: 100%; }
+
+#content {
+  background: #fff; }
+
+#content {
+  color: #616A74; }
+  #content h1 {
+    color: #616A74; }
 
 .wf-loading body {
   visibility: hidden; }
@@ -158,11 +167,11 @@ h1, h2, h3, h4, h5, nav, nav a:link, nav a:visited, h1 a:link, h1 a:visited {
   font-style: normal;
   text-transform: uppercase;
   font-size: 1.5em;
-  line-height: 1.15em;
-  color: #fff; }
+  line-height: 1.15em; }
 
 h1 {
   font-size: 3em;
+  line-height: .85em;
   margin: 0 0 20px 0;
   padding: 0;
   top: 0; }
@@ -173,17 +182,42 @@ h2 {
 
 section#sidebar {
   padding: 2.5%;
-  margin: 0; }
+  display: block;
+  margin: 0;
+  background: #616A74;
+  color: #fff; }
+  section#sidebar a:link, section#sidebar a:visited {
+    color: #fff; }
+  section#sidebar h1 a:link, section#sidebar h1 a:visited {
+    font-size: 1em;
+    line-height: .8em;
+    text-decoration: none; }
+  section#sidebar #navtoggle {
+    display: block;
+    width: 95%;
+    margin: 0;
+    padding: 10px;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.15); }
+    section#sidebar #navtoggle:hover, section#sidebar #navtoggle:active {
+      background: rgba(255, 255, 255, 0.25) !important;
+      color: white !important; }
+  section#sidebar #navcontent {
+    display: block; }
   section#sidebar section#follow {
-    padding: 5px 15px;
+    padding: 0px 15px;
     margin: 15px 0;
     border: 1px solid #fff; }
+    section#sidebar section#follow p {
+      line-height: 1.25em; }
   section#sidebar ul {
     list-style-type: none;
     margin: 0;
     padding: 0 0 15px; }
     section#sidebar ul li a {
       text-decoration: none; }
+    section#sidebar ul #maplink {
+      display: none; }
   section#sidebar ul#socialmedia {
     margin-top: 20px;
     font-size: 2em; }
@@ -191,9 +225,17 @@ section#sidebar {
       display: inline-block;
       margin: 0;
       padding: 0; }
-      section#sidebar ul#socialmedia li a {
+      section#sidebar ul#socialmedia li a:link, section#sidebar ul#socialmedia li a:visited {
         padding: 0 5px;
         border-radius: 5px; }
+
+body#index {
+  background: #616A74;
+  overflow: hidden; }
+  body#index #navtoggle {
+    display: none !important; }
+  body#index #navcontent {
+    display: block !important; }
 
 html, body, #map {
   height: 100%; }
@@ -238,28 +280,13 @@ html, body, #map {
   #map .leaflet-popup-content-wrapper {
     border-radius: 0;
     padding: 0; }
+  #map .leafet-marker-icon:hover {
+    box-shadow: 5px 5px 5px black !important; }
+  #map .leaflet-marker-icon:active {
+    opacity: .75; }
 
-section#content {
-  width: 90%;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 5% 85px 5%;
-  font-family: "DIN 1451 Engschrift Standard";
-  font-size: 38px;
-  color: #fff;
-  text-shadow: -1px -1px 0 #616A74, 1px -1px 0 #616A74, -1px 1px 0 #616A74, 1px 1px 0 #616A74; }
-  section#content img {
-    max-width: 100%;
-    display: block;
-    margin: 10px auto; }
-  section#content p {
-    padding: 0 0 10px 0; }
-
-body#about {
-  background: url(https://4b2c926d4332f762d636-82df662923e9aaa8e69c981ad9a6a031.ssl.cf2.rackcdn.com/51eefa975dde22357f00001b/assets/52b22b425dde22a90a00000a.jpg) no-repeat fixed center;
-  background-size: cover; }
-  body#about p {
-    padding: 200px 0 !important; }
+#content {
+  padding: 2.5%; }
 
 body#exhibitions ul#exhibition-grid {
   list-style-type: none;
@@ -267,17 +294,14 @@ body#exhibitions ul#exhibition-grid {
   padding: 0; }
   body#exhibitions ul#exhibition-grid li {
     display: inline-block;
-    width: 45%; }
-    body#exhibitions ul#exhibition-grid li a:link, body#exhibitions ul#exhibition-grid li a:visited {
-      color: #fff;
-      text-decoration: none;
-      vertical-align: baseline; }
-    body#exhibitions ul#exhibition-grid li a:hover, body#exhibitions ul#exhibition-grid li a:active {
-      border-bottom: 1px solid blue;
-      color: white !important;
-      text-shadow: -1px -1px 0 blue, 1px -1px 0 blue, -1px 1px 0 blue, 1px 1px 0 blue; }
+    width: 45%;
+    vertical-align: top; }
   body#exhibitions ul#exhibition-grid li:nth-child(1n+1) {
     padding-right: 4%; }
+  body#exhibitions ul#exhibition-grid a:link, body#exhibitions ul#exhibition-grid a:visited {
+    text-decoration: none; }
+  body#exhibitions ul#exhibition-grid h2 {
+    margin-top: 5px; }
 
 body#follow {
   text-align: center; }
@@ -289,14 +313,47 @@ hr {
   border-right: 1px dashed white; }
 
 @media only screen and (min-width: 768px) {
+  #sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 97.5%; }
+
+  #navtoggle {
+    display: none !important; }
+
+  #navcontent {
+    display: block !important; }
+
   #map {
     visibility: visible; }
 
-  section#sidebar, div#map {
+  section#sidebar, div#map, section#content {
     float: left; }
 
+  section#sidebar {
+    width: 30%; }
+
+  div#map {
+    width: 65%; }
+
+  section#content {
+    width: 60%; } }
+@media only screen and (min-width: 992px) {
   section#sidebar {
     width: 25%; }
 
   div#map {
+    width: 70%; }
+
+  section#content {
+    width: 65%; } }
+@media only screen and (min-width: 1382px) {
+  section#sidebar {
+    width: 20%; }
+
+  div#map {
+    width: 75%; }
+
+  section#content {
     width: 70%; } }
