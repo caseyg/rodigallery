@@ -274,7 +274,7 @@ html, body, #map {
     #map .leaflet-popup-content h2 {
       margin: 15px 0 10px 0px !important; }
   #map .leaflet-tile-pane {
-    opacity: .6; }
+    opacity: .25; }
   #map .leaflet-popup a:link h2, #map .leaflet-popup a:visited h2 {
     text-decoration: none; }
   #map .leaflet-popup-content-wrapper {
