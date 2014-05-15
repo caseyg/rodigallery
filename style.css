@@ -147,9 +147,10 @@ a:link, a:visited {
 a:hover, a:active {
   text-decoration: underline !important; }
 
-img {
+#content img {
   max-width: 100%;
-  display: block; }
+  display: block;
+  margin: 0 0 10px 0; }
 
 #content {
   background: #fff; }
