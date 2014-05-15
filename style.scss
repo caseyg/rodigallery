@@ -20,6 +20,7 @@ a:hover, a:active {
 
 img {
 	max-width:100%;
+	background:#eee;
 }
 
 #content {
@@ -31,6 +32,10 @@ img {
 	h1 {
 		color:#616A74;
 	}
+}
+
+#instantclick-bar {
+  background: #616A74;
 }
 
 // Headings and Typography
@@ -236,7 +241,7 @@ body#exhibitions {
 	#sidebar {
 		position:fixed;
 			top:0;
-			right:0;
+			left:0;
 		height:97.5%;
 	}
 	#navtoggle {display:none!important;}
@@ -252,9 +257,11 @@ body#exhibitions {
 	}
 	div#map {
 		width: 65%;
+		margin-left:35%;
 	}
 	section#content {
 		width: 60%;
+		margin-left:35%;
 	}
 }
 @media only screen and (min-width: 768px) {
@@ -266,9 +273,11 @@ body#exhibitions {
 	}
 	div#map {
 		width: 70%;
+		margin-left:30%;
 	}
 	section#content {
 		width: 65%;
+		margin-left:30%;
 	}
 }
 @media only screen and (min-width: 1382px) {
@@ -277,8 +286,10 @@ body#exhibitions {
 	}
 	div#map {
 		width: 75%;
+		margin-left:25%;
 	}
 	section#content {
 		width: 70%;
+		margin-left:25%;
 	}
 }

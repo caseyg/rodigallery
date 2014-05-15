@@ -148,7 +148,8 @@ a:hover, a:active {
   text-decoration: underline !important; }
 
 img {
-  max-width: 100%; }
+  max-width: 100%;
+  background: #eee; }
 
 #content {
   background: #fff; }
@@ -157,6 +158,9 @@ img {
   color: #616A74; }
   #content h1 {
     color: #616A74; }
+
+#instantclick-bar {
+  background: #616A74; }
 
 .wf-loading body {
   visibility: hidden; }
@@ -307,7 +311,7 @@ body#exhibitions ul#exhibition-grid {
   #sidebar {
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     height: 97.5%; }
 
   #navtoggle {
@@ -326,25 +330,31 @@ body#exhibitions ul#exhibition-grid {
     width: 30%; }
 
   div#map {
-    width: 65%; }
+    width: 65%;
+    margin-left: 35%; }
 
   section#content {
-    width: 60%; } }
+    width: 60%;
+    margin-left: 35%; } }
 @media only screen and (min-width: 992px) {
   section#sidebar {
     width: 25%; }
 
   div#map {
-    width: 70%; }
+    width: 70%;
+    margin-left: 30%; }
 
   section#content {
-    width: 65%; } }
+    width: 65%;
+    margin-left: 30%; } }
 @media only screen and (min-width: 1382px) {
   section#sidebar {
     width: 20%; }
 
   div#map {
-    width: 75%; }
+    width: 75%;
+    margin-left: 25%; }
 
   section#content {
-    width: 70%; } }
+    width: 70%;
+    margin-left: 25%; } }
