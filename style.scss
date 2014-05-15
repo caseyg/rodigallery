@@ -18,7 +18,10 @@ a:hover, a:active {
 	text-decoration:underline!important;
 }
 
-img {max-width:100%;}
+img {
+	max-width:100%;
+	margin-bottom:20px;
+}
 
 #content {
 	background:#fff;
@@ -61,7 +64,7 @@ h2 {
 // Sidebar
 
 section#sidebar {
-	padding:2.5%;
+	padding:5% 2.5%;
 	display:block;
 	margin:0;
 	background:#616A74;
@@ -94,7 +97,7 @@ section#sidebar {
 	section#follow {
 		padding:0px 15px;
 		margin:15px 0;
-		border:1px solid #fff;
+		border:1px dashed #fff;
 		p {line-height:1.25em;}
 	}
 	ul {
@@ -200,7 +203,7 @@ html, body, #map {
 // Default Template
 
 #content {
-	padding:2.5%;
+	padding:5% 2.5%;
 }
 
 // Exhbitions Index Page
@@ -225,19 +228,6 @@ body#exhibitions {
 			margin-top:5px;
 		}
 	}
-}
-
-// Follow Page
-
-body#follow {
-	text-align:center;
-}
-
-hr {
-	height:100px;
-	width:2px;
-	border:none;
-	border-right:1px dashed white;
 }
 
 // Media queries

@@ -148,7 +148,8 @@ a:hover, a:active {
   text-decoration: underline !important; }
 
 img {
-  max-width: 100%; }
+  max-width: 100%;
+  margin-bottom: 20px; }
 
 #content {
   background: #fff; }
@@ -181,7 +182,7 @@ h2 {
   line-height: 1em; }
 
 section#sidebar {
-  padding: 2.5%;
+  padding: 5% 2.5%;
   display: block;
   margin: 0;
   background: #616A74;
@@ -207,7 +208,7 @@ section#sidebar {
   section#sidebar section#follow {
     padding: 0px 15px;
     margin: 15px 0;
-    border: 1px solid #fff; }
+    border: 1px dashed #fff; }
     section#sidebar section#follow p {
       line-height: 1.25em; }
   section#sidebar ul {
@@ -286,7 +287,7 @@ html, body, #map {
     opacity: .75; }
 
 #content {
-  padding: 2.5%; }
+  padding: 5% 2.5%; }
 
 body#exhibitions ul#exhibition-grid {
   list-style-type: none;
@@ -302,15 +303,6 @@ body#exhibitions ul#exhibition-grid {
     text-decoration: none; }
   body#exhibitions ul#exhibition-grid h2 {
     margin-top: 5px; }
-
-body#follow {
-  text-align: center; }
-
-hr {
-  height: 100px;
-  width: 2px;
-  border: none;
-  border-right: 1px dashed white; }
 
 @media only screen and (min-width: 768px) {
   #sidebar {
