@@ -1,63 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<meta content="width=device-width, initial-scale=1" name="viewport">
-	<title>{{site.title}}</title>
-	<link rel="alternate" type="application/rss+xml" href="{{site.feed_url}}" />
+{% capture content %}
+	<ul id="exhibition-grid">
+	{% for post in posts %}
+		<li>
+			<a href="{{post.url}}">
+				{% for asset in post.assets limit:1 %}
+					{% if asset.type == 'image' %}
+					<img src="{{asset.url}}">
+					{% endif %}
+				{% endfor %}
+				<h2>{{post.title}}</h2>
+			</a>
+		</li>
+	{% endfor %}
+	</ul>
+{% endcapture %}
 
-	<script type="text/javascript">
-	var html = document.getElementsByTagName('html')[0];
-	html.className += 'wf-loading';
-	setTimeout(function() {
-	  html.className = html.className.replace(' wf-loading', '');
-	}, 5000);
-
-	WebFontConfig = { fontdeck: { id: '35630' } };
-
-	(function() {
-	  var wf = document.createElement('script');
-	  wf.src = 'http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-	  wf.type = 'text/javascript';
-	  wf.async = 'true';
-	  var s = document.getElementsByTagName('script')[0];
-	  s.parentNode.insertBefore(wf, s);
-	})();
-	</script>
-	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
-	<link rel="stylesheet" type="text/css" href="/style.css" />
-	<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
-	<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
-	<script type="text/javascript">
-		function initialize() {
-			var layer = new L.StamenTileLayer("toner-background");
-			var map = new L.Map("map");
-			var bounds = new Array();
-			{% for post in site.posts %}
-			var maki = L.icon({
-				iconUrl: 'http://rodigallery.com/assets/marker-{{post.slug | remove:'-' }}.png',
-				iconRetinaUrl: 'http://rodigallery.com/assets/marker-{{post.slug | remove:'-' }}@2x.png',
-				iconSize: [90, 90],
-				iconAnchor: [45, 20],
-				popupAnchor: [0, 0],
-		    shadowUrl: 'http://rodigallery.com/assets/marker-shadow.png',
-		    shadowRetinaUrl: 'http://rodigallery.com/assets/marker-shadow@2x.png',
-		    shadowSize: [90, 90],
-		    shadowAnchor: [23, 2]
-			});
-			var {{post.slug | remove:'-' }} = L.marker([{{post.meta.lat}}, {{post.meta.long}}], {icon: maki, riseOnHover: true}).bindPopup('<a href="{{post.url}}" class="imagelink">{% for asset in post.assets limit:1 %}{% if asset.type == "image" %} <img src="{{asset.url}}"" width="300px" />{% endif %}{% endfor %}</a><span class="popup-content"><h2><a href="{{post.url}}">{{post.title}}</a></h2> {{post.excerpt | strip_newlines}}</span>').addTo(map);
-			bounds.push([{{post.meta.lat}}, {{post.meta.long}}]);
-			{% endfor %}
-			map.fitBounds(bounds, {padding: L.point(25, 25)});
-			map.addLayer(layer);
-		}
-	</script>
-</head>
-<body id="index" onload="initialize()">
-	{% include "sidebar" %}
-	<div id="map"></div>
-	<script src="instantclick.min.js" data-no-instant></script>
-	<script data-no-instant>InstantClick.init();</script>
-</body>
-</html>
+{% include "layouts/default" %}
